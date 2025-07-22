@@ -1,6 +1,6 @@
 @extends('layouts.app')
-
-@section('posts.index')
+@section('title') Posts @endsection('title')
+@section('content')
     <div class="text-center">
         <button type="button" class="btn btn-success">Create Post</button>
     </div>
@@ -31,4 +31,4 @@
         @endforeach
         </tbody>
     </table>
-@endsection('posts.index')
+@endsection('content')

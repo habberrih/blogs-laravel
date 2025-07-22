@@ -1,6 +1,6 @@
 @extends('layouts.app')
-
-@section('posts.show')
+@section('title') Show  Post @endsection('title')
+@section('content')
     <div class="card">
         <div class="card-header">
             Featured
@@ -11,4 +11,4 @@
             <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
     </div>
-@endsection('posts.show')
+@endsection('content')
