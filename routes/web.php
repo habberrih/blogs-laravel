@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use \App\Http\Controllers\Blog\BlogController;
+use \App\Http\Controllers\Post\PostController;
 
 Route::get('/', function () {
     return Inertia::render('welcome');
@@ -14,7 +14,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('dashboard');
 });
 
-Route::get('/blogs', [BlogController::class, 'index']);
+Route::get('/posts', [PostController::class, 'index']);
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
