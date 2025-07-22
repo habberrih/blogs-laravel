@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Blogs Laravel</title>
 </head>
 <body>
 
@@ -21,7 +21,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">All Posts <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{route('posts.index')}}">All Posts <span class="sr-only">(current)</span></a>
             </li>
         </ul>
     </div>
@@ -50,7 +50,7 @@
                 <td>{{$post['posted_by']}}</td>
                 <td>{{$post['created_at']}}</td>
                 <td>
-                    <a href="#" class="btn btn-info">View</a>
+                    <a href='{{route('posts.show', $post['id'])}}' class="btn btn-info">View</a>
                     <a href="#" class="btn btn-primary">Edit</a>
                     <a href="#" class="btn btn-danger">Delete</a>
                 </td>
