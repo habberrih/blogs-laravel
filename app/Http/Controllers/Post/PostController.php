@@ -16,6 +16,10 @@ class PostController extends Controller
             ['id' => 4, 'title' => 'Python', 'posted_by' => 'Ahmed', 'created_at' => '2019-01-13'],
             ['id' => 5, 'title' => 'CPP', 'posted_by' => 'Ahmed', 'created_at' => '2019-01-14'],
         ];
-        return view('posts/index', ['posts' => $allPosts]);
+        return view('posts.index', ['posts' => $allPosts]);
+    }
+
+    public function show(int $postId): string {
+        return view('posts.show', ['post_id' => $postId]);
     }
 }
