@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Blog;
+namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
 
-class BlogController extends Controller
+class PostController extends Controller
 {
     public function index(): string
     {
@@ -16,6 +16,6 @@ class BlogController extends Controller
             ['id' => 4, 'title' => 'Python', 'posted_by' => 'Ahmed', 'created_at' => '2019-01-13'],
             ['id' => 5, 'title' => 'CPP', 'posted_by' => 'Ahmed', 'created_at' => '2019-01-14'],
         ];
-        return view('blog', ['posts' => $allPosts]);
+        return view('posts/index', ['posts' => $allPosts]);
     }
 }
