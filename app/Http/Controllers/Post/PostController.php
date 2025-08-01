@@ -22,4 +22,8 @@ class PostController extends Controller
     public function show(int $postId): string {
         return view('posts.show', ['post_id' => $postId]);
     }
+
+    public function create(): string {
+        return view('posts.create');
+    }
 }
