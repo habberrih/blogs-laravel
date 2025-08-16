@@ -34,4 +34,15 @@ class PostController extends Controller
 
         return to_route('posts.index');
     }
+
+    public function edit(): string {
+
+        return view('posts.edit');
+    }
+
+    public function update(): string {
+
+        $data = request()->all();
+        return to_route('posts.show', 1);
+    }
 }
