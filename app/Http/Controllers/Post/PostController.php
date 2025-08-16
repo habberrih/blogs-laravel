@@ -26,4 +26,12 @@ class PostController extends Controller
     public function create(): string {
         return view('posts.create');
     }
+
+    public function store(): string {
+
+        // get the user data from the form (frontend)
+        $data = request()->all();
+
+        return to_route('posts.index');
+    }
 }
