@@ -45,4 +45,8 @@ class PostController extends Controller
         $data = request()->all();
         return to_route('posts.show', 1);
     }
+
+    public function destroy(): string {
+    return to_route('posts.index');
+    }
 }
