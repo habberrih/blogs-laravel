@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Models\User;
 
 class PostController extends Controller
 {
@@ -11,13 +12,6 @@ class PostController extends Controller
     {
 
         $all_posts  = Post::all();
-        $allPosts = [
-            ['id' => 1, 'title' => 'Laravel', 'posted_by' => 'Ahmed', 'created_at' => '2019-01-10'],
-            ['id' => 2, 'title' => 'TypeScript', 'posted_by' => 'Habberrih', 'created_at' => '2019-01-11'],
-            ['id' => 3, 'title' => 'HTML', 'posted_by' => 'Khalid', 'created_at' => '2019-01-12'],
-            ['id' => 4, 'title' => 'Python', 'posted_by' => 'Ahmed', 'created_at' => '2019-01-13'],
-            ['id' => 5, 'title' => 'CPP', 'posted_by' => 'Ahmed', 'created_at' => '2019-01-14'],
-        ];
         return view('posts.index', ['posts' => $all_posts]);
     }
 
@@ -31,7 +25,9 @@ class PostController extends Controller
     }
 
     public function create(): string {
-        return view('posts.create');
+        $users = User::all();
+
+        return view('posts.create', ['users' => $users]);
     }
 
     public function store(): string {
@@ -39,17 +35,34 @@ class PostController extends Controller
         // get the user data from the form (frontend)
         $data = request()->all();
 
+//        $post = new Post();
+//        $post->title = $data['title'];
+//        $post->description = $data['description'];
+//        //$post->postCreator = $data['postCreator'];
+//        $post->save();
+
+        Post::creat([
+            'title' => $data['title'],
+            'description' => $data['description'],
+        ]);
+
         return to_route('posts.index');
     }
 
     public function edit(): string {
 
-        return view('posts.edit');
+        $users = User::all();
+        return view('posts.edit', ['users' => $users]);
     }
 
-    public function update(): string {
+    public function update(int $postId): string {
 
         $data = request()->all();
+
+        $existsPost = Post::find($postId);
+        //To be completed with the video
+
+
         return to_route('posts.show', 1);
     }
 
