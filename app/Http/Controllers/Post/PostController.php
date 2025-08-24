@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
+use App\Models\Post;
 
 class PostController extends Controller
 {
     public function index(): string
     {
 
+        $all_posts  = Post::all();
         $allPosts = [
             ['id' => 1, 'title' => 'Laravel', 'posted_by' => 'Ahmed', 'created_at' => '2019-01-10'],
             ['id' => 2, 'title' => 'TypeScript', 'posted_by' => 'Habberrih', 'created_at' => '2019-01-11'],
@@ -16,11 +18,16 @@ class PostController extends Controller
             ['id' => 4, 'title' => 'Python', 'posted_by' => 'Ahmed', 'created_at' => '2019-01-13'],
             ['id' => 5, 'title' => 'CPP', 'posted_by' => 'Ahmed', 'created_at' => '2019-01-14'],
         ];
-        return view('posts.index', ['posts' => $allPosts]);
+        return view('posts.index', ['posts' => $all_posts]);
     }
 
-    public function show(int $postId): string {
-        return view('posts.show', ['post_id' => $postId]);
+    public function show(Post $post): string {
+//        $singlePost = Post::where('id', $postId) -> first(); // or get(): more than one raw
+//
+//        if(is_null($singlePost)) {
+//            return to_route('posts.index');
+//        }
+        return view('posts.show', ['post' => $post]);
     }
 
     public function create(): string {
