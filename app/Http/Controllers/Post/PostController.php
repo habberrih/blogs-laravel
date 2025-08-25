@@ -60,10 +60,13 @@ class PostController extends Controller
         $data = request()->all();
 
         $existsPost = Post::find($postId);
-        //To be completed with the video
+        $existsPost->update([
+            'title' => $data['title'],
+            'description' => $data['description'],
+        ]);
 
 
-        return to_route('posts.show', 1);
+        return to_route('posts.show', $postId);
     }
 
     public function destroy(): string {
