@@ -8,11 +8,11 @@
         @method('PUT')
         <div class="mb-3">
             <label class="form-label">New Title</label>
-            <input type="text" name="title" class="form-control">
+            <input type="text" name="title" value="{{$post->title}}" class="form-control">
         </div>
         <div class="mb-3">
             <label class="form-label">New Description</label>
-            <textarea name="description" class="form-control" rows="3"></textarea>
+            <textarea name="description" class="form-control" rows="3">{{$post->description}}</textarea>
         </div>
         <div class="mb-3">
             <label class="form-label">New Creator</label>

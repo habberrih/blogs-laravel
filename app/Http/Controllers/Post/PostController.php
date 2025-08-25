@@ -49,10 +49,10 @@ class PostController extends Controller
         return to_route('posts.index');
     }
 
-    public function edit(): string {
+    public function edit(Post $post): string {
 
         $users = User::all();
-        return view('posts.edit', ['users' => $users]);
+        return view('posts.edit', ['users' => $users, 'post' => $post]);
     }
 
     public function update(int $postId): string {
