@@ -2,7 +2,7 @@
 @section('title') Edit  Post @endsection('title')
 @section('content')
 
-    <form method="POST" action="{{route('posts.update', 1)}}">
+    <form method="POST" action="{{route('posts.update', $post->id)}}">
         @csrf
 {{--   @method('PUT') required if we want to update an item, because form element accepts only: GET || POST     --}}
         @method('PUT')
