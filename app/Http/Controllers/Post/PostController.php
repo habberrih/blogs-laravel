@@ -41,7 +41,7 @@ class PostController extends Controller
 //        //$post->postCreator = $data['postCreator'];
 //        $post->save();
 
-        Post::creat([
+        Post::create([
             'title' => $data['title'],
             'description' => $data['description'],
         ]);
@@ -69,7 +69,11 @@ class PostController extends Controller
         return to_route('posts.show', $postId);
     }
 
-    public function destroy(): string {
+    public function destroy($postId): string {
+
+        $existsPost = Post::find($postId);
+        $existsPost->delete();
+
     return to_route('posts.index');
     }
 }
