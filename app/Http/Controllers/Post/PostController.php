@@ -16,6 +16,8 @@ class PostController extends Controller
     }
 
     public function show(Post $post): string {
+        /*** This method implemented using Route Model Binding ***/
+
 //        $singlePost = Post::where('id', $postId) -> first(); // or get(): more than one raw
 //
 //        if(is_null($singlePost)) {
