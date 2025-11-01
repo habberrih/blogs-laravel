@@ -1,14 +1,28 @@
 @extends('layouts.app')
-@section('title') Show  Post @endsection('title')
+
+@section('title') Show Post @endsection
+
 @section('content')
-    <div class="card">
+    <div class="card mt-4">
         <div class="card-header">
-            Featured
+            Post Info
         </div>
         <div class="card-body">
-            <h5 class="card-title">Special title treatment for {{$post->title}}</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <h5 class="card-title">Title: {{$post->title}}</h5>
+            <p class="card-text">Description: {{$post->description}}</p>
         </div>
     </div>
-@endsection('content')
+
+    <div class="card mt-4">
+        <div class="card-header">
+            Post Creator Info
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Name: {{$post->user ? $post->user->name : 'not found'}}</h5>
+            <p class="card-text">Email: {{$post->user ? $post->user->email: 'not found'}}</p>
+            <p class="card-text">Created At: {{$post->user ? $post->user->created_at: 'not found'}}</p>
+        </div>
+    </div>
+@endsection
+
+
