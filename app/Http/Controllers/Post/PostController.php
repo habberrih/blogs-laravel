@@ -46,6 +46,7 @@ class PostController extends Controller
         Post::create([
             'title' => $data['title'],
             'description' => $data['description'],
+            'user_id' => $data['user_id'],
         ]);
 
         return to_route('posts.index');
@@ -65,6 +66,7 @@ class PostController extends Controller
         $existsPost->update([
             'title' => $data['title'],
             'description' => $data['description'],
+            'user_id' => $data['user_id'],
         ]);
 
 
