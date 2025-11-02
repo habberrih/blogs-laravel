@@ -34,6 +34,12 @@ class PostController extends Controller
 
     public function store(): string {
 
+        // This is how to validate the request.
+        request()->validate([
+            'title' => ['required', 'min:3'],
+            'description' => ['required', 'min:10'],
+        ]);
+
         // get the user data from the form (frontend)
         $data = request()->all();
 
