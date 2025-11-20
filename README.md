@@ -1,4 +1,4 @@
-# Blogs Website
+# Blogs Website (Learning Project)
 A hands-on Laravel + React blog application created for learning purposes.
 
 ## Overview
